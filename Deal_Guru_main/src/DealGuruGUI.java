@@ -24,9 +24,9 @@ class DealGuruGUI extends JFrame {
     static JTextField urlText;
     static JLabel label;
 
+
     //timer
     static int dealNum = 0;
-    
     
     //Class used for making a JPanel that can hold an image
 
@@ -54,7 +54,7 @@ class DealGuruGUI extends JFrame {
 
   
     // MAIN METHOD
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
     	//INSTANTIATING ALL COMPONENTS
     	SoupPot soup = new SoupPot();
 
@@ -78,8 +78,14 @@ class DealGuruGUI extends JFrame {
         {
         	public void actionPerformed(ActionEvent e)
         	{
-        		System.exit(0);
-        	}
+        	    frame.hide();
+                try {
+                    Thread.sleep(60000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+                frame.show();
+            }
         });
 
         rightBtn.addActionListener(new ActionListener()
@@ -192,6 +198,10 @@ class DealGuruGUI extends JFrame {
         frame.setSize(900, 300);
   
         frame.show(); 
+    }
+
+    public void refresh(){
+        frame.show();
     }
 
     static public int getNum(){
