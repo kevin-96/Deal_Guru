@@ -16,8 +16,11 @@ public class SoupPot {
     public Elements images;
     public Elements links;
 
-    public SoupPot() throws IOException {
-        Document doc = Jsoup.connect("https://dealsea.com/search?q=apple&search_mode=Deals").get();
+    public SoupPot(String searchTerm) throws IOException {
+        String url1 = "https://dealsea.com/search?q=";
+        String url2 = "&search_mode=Deals";
+        String url = url1 + searchTerm + url2;
+        Document doc = Jsoup.connect(url).get();
         titles = doc.select(".dealcontent > strong");
         images = doc.select(".dealbox > .prodimage img[src]");
         links = doc.select(".dealcontent > strong a");

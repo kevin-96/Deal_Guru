@@ -54,9 +54,10 @@ class DealGuruGUI extends JFrame {
 
   
     // MAIN METHOD
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void run(String search, int time) throws IOException, InterruptedException {
     	//INSTANTIATING ALL COMPONENTS
-    	SoupPot soup = new SoupPot();
+
+    	SoupPot soup = new SoupPot(search);
 
         //instantiating JFrame that will hold the various panels
         frame = new JFrame("Deal Guru");
